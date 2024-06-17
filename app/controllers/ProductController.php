@@ -14,7 +14,7 @@ class ProductController extends AppController
         $alias = $this->route['alias'];
         $product = R::findOne('product', "alias = ? AND status = '1'", [$alias]);
 
-        if(!$product){
+        if (!$product) {
             throw new \Exception('Страница не найдена', 404);
         }
         $gallery = R::findAll('gallery', "product_id = ?", [$product->id]);
@@ -24,7 +24,7 @@ class ProductController extends AppController
         $p_model->setRecentlyViewed($product->id);
         $r_viewed = $p_model->gerRecentlyViewed();
         $recentlyViewed = null;
-        if($r_viewed){
+        if ($r_viewed) {
             $recentlyViewed = R::find('product', 'id IN (' . R::genSlots($r_viewed) . ') LIMIT 4', $r_viewed);
         }
 
@@ -33,14 +33,14 @@ class ProductController extends AppController
         $attrIds = R::getCol("SELECT attr_id FROM attribute_product WHERE product_id = ?", [$product->id]);
         $attrIds = implode(',', $attrIds);
 
-        if($attrIds){
+        if ($attrIds) {
             $attrs = R::getAll("SELECT av.id, av.value FROM attribute_value av JOIN attribute_group ag on ag.id = av.attr_group_id  WHERE av.id IN ($attrIds) AND ag.type_inp = 2 ORDER BY av.value");
             $attrs2 = R::getAll("SELECT av.id, av.value FROM attribute_value av JOIN attribute_group ag on ag.id = av.attr_group_id  WHERE av.id IN ($attrIds) AND ag.type_inp = 1 ORDER BY av.value");
             $brend = isset($attrs2[0]) ? " фирмы {$attrs2[0]['value']}," : '';
             $color = isset($attrs2[1]) ? " цвет {$attrs2[1]['value']}" : '';
             $title = "Кроссовки {$product->title} фирмы {$brand->title}";
             $description = "Купить кроссовки {$product->title} фирмы {$brand->title} по цене от {$product->price}р в интернет магазине брендовой обуви {$this->shop_name}";
-        }else{
+        } else {
             $attrs = null;
             $title = "Кроссовки {$product->title} фирмы {$brand->title}";
             $description = "Купить кроссовки {$product->title} по цене от {$product->price}р в интернет магазине брендовой обуви {$this->shop_name}";
@@ -48,5 +48,19 @@ class ProductController extends AppController
 
         $this->setMeta($title, $description, $product->keywords);
         $this->set(compact('product', 'related', 'gallery', 'recentlyViewed', 'breadcrumbs', 'attrs', 'attrs2', 'brand'));
+    }
+
+    public function ajaxAction()
+    {
+//        findOne('product', "id = ? AND status = '1'", [$id]);
+        $id = $_GET['id'] ?? '';
+        $product = R::getRow("SELECT p.id, p.title, p.price, p.old_price, p.img FROM product p WHERE id = ?", [$id]);
+        $attrIds = R::getCol("SELECT attr_id FROM attribute_product WHERE product_id = ?", [$id]);
+        $attrIds = implode(',', $attrIds);
+        $attrs = R::getAll("SELECT av.id, av.value FROM attribute_value av JOIN attribute_group ag on ag.id = av.attr_group_id  WHERE av.id IN ($attrIds) AND ag.type_inp = 2 ORDER BY av.value");
+
+        if ($this->isAjax()) {
+            $this->loadView('ajax', compact('product', 'attrs'));
+        }
     }
 }

@@ -77,12 +77,26 @@
     // Popup Quick View JS
     var popupProduct = $(".product-quick-view-modal");
     $(".btn-product-quick-view-open").on('click', function () {
-        popupProduct.addClass('active');
-        $("body").addClass("fix");
+        let id = $(this).data('id');
+
+        $.ajax({
+            url: path + '/product/ajax',
+            data: {id},
+            method: 'GET',
+            success: function (res) {
+                $('.product-ajax-modal').html(res);
+                popupProduct.addClass('active');
+                $("body").addClass("fix");
+            },
+            error: function () {
+                alert('Ошибка');
+            }
+        });
     });
     $(".btn-close, .canvas-overlay").on('click', function () {
         popupProduct.removeClass('active');
         $("body").removeClass("fix");
+        $('.product-ajax-modal').html('');
     });
 
     // Swiper Default Slider Js
@@ -489,7 +503,7 @@
         e.preventDefault();
         let id = $(this).data('id'),
             qty = $('.pro-qty input') ? $('.pro-qty input').val() : 1,
-            modSize = $('#mod-size') ? $('#mod-size').val() : null;
+            modSize = $('[name=mod-size]') ? $('[name=mod-size]').val() : null;
 
         $.ajax({
             url: path + '/cart/add',

@@ -83,7 +83,7 @@ class CategoryController extends AppController
             $this->loadView('filter', compact('products', 'pagination', 'total', 'perpage'));
         }
         $cat_title = $category->keywords ? $category->keywords : "Кроссовки категории $category->title | Интернет магазин фирменной обуви Твои кроссовки";
-        $cat_desc = $category->description ? $category->description : "Купите высококачественные кроссовки известных брендов от 1999 руб в нашем интернет-магазине Твои кроссовки. Широкий ассортимент в категории {$category->title} включает стильную и функциональную обувь от ведущих производителей.";
+        $cat_desc = $category->description ? $category->description : "Купите высококачественные кроссовки известных брендов от 2999 руб в нашем интернет-магазине Твои кроссовки. Широкий ассортимент в категории {$category->title} включает стильную и функциональную обувь от ведущих производителей.";
 
         $this->setMeta($cat_title, $cat_desc, '');
         $this->set(compact('products', 'breadcrumbs', 'pagination', 'total', 'cat', 'perpage'));

@@ -70,6 +70,9 @@
                                                                    data-id="<?= $product->id; ?>"
                                                                    href="<?= PATH ?>/cart/add?id=<?= $product->id; ?>"><i
                                                                             class="fa fa-shopping-cart"></i></a>
+                                                                <button data-id="<?= $product->id; ?>" type="button" class="btn-product-quick-view-open">
+                                                                    <i class="fa fa-arrows"></i>
+                                                                </button>
                                                             </div>
                                                             </noindex>
                                                         </div>
