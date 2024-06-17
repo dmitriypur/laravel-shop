@@ -17,6 +17,7 @@ class AppController extends Controller
         parent::__construct($route);
         new AppModel();
         App::$app->setProperty('cats', self::cacheCategory());
+        App::$app->setProperty('brands', self::cacheBrands());
         App::$app->setProperty('prices', self::getPrices());
         App::$app->setProperty('wishlist', Wishlist::get_wishlist_ids());
     }
@@ -29,6 +30,16 @@ class AppController extends Controller
             $cache->set('cats', $cats);
         }
         return $cats;
+    }
+
+    public static function cacheBrands(){
+        $cache = Cache::instance();
+        $brands = $cache->get('brands');
+        if(!$brands){
+            $brands = R::getAssoc("SELECT * FROM brand");
+            $cache->set('brands', $brands);
+        }
+        return $brands;
     }
 
     public static function getPrices()

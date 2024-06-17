@@ -91,8 +91,8 @@ class ProductController extends AppController
             $product->attributes['status'] = $product->attributes['status'] ? '1' : '0';
             $product->attributes['hit'] = $product->attributes['hit'] ? '1' : '0';
             $product->attributes['old_price'] = $product->attributes['old_price'] ?: 0;
-
             $product->getImg();
+
             if (!$product->validate($data)) {
                 $product->getErrors();
                 redirect();

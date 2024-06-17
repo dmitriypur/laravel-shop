@@ -15,17 +15,19 @@ class CategoryController extends AppController
 
     private static function getProps(){
         $sql_part = '';
-
         if(!empty($_GET['filter'])){
             $params = explode(';', $_GET['filter']);
             $props = '';
             $size = '';
+            $brand = '';
 
             foreach($params as $item){
                 $f = explode(':', $item);
 
                 if($f[0] == 'size'){
                     $size .= $f[1] . ',';
+                }elseif ($f[0] == 'brand'){
+                    $brand .= $f[1] . ',';
                 }else{
                     $props .= $f[1] . ',';
                 }
@@ -33,14 +35,17 @@ class CategoryController extends AppController
 
             $props = trim($props, ',');
             $size = trim($size, ',');
+            $brand = trim($brand, ',');
 
             if($props){
                 $cnt = Filter::getCountGroups($props);
                 $sql_part .= " AND id IN (SELECT product_id FROM attribute_product WHERE attr_id IN ($props) GROUP BY product_id HAVING COUNT(product_id) = $cnt )";
             }
-
             if($size){
                 $sql_part .= " AND id IN (SELECT product_id FROM attribute_product WHERE attr_id IN ($size))";
+            }
+            if($brand){
+                $sql_part .= " AND brand_id IN ($brand)";
             }
         }
         if(!empty($_GET['price'])){

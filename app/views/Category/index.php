@@ -121,6 +121,17 @@
                             ]); ?>
                         </div>
                     </div>
+                    <div class="shop-sidebar-size">
+                        <h4 class="sidebar-title">Брэнды</h4>
+                        <div class="sidebar-size">
+                            <?php foreach(\ishop\App::$app->getProperty('brands') as $key => $item): ?>
+                                <div class="checkbox__box">
+                                    <input class="form-check-input" data-alias="brand" data-inp="1" type="checkbox" value="<?=$key?>" id="brand-<?=$key?>">
+                                    <label class="form-check-label" for="brand-<?=$key?>"><?=$item['title']?></label>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
 
                     <div class="shop-sidebar-price-range">
                         <h4 class="sidebar-title">Цена</h4>

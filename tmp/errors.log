@@ -16013,3 +16013,19 @@
 ====================
 [2024-06-17 11:18:05]Текст ошибки SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') GROUP BY product_id HAVING COUNT(product_id) = 1 )  AND id IN (SELECT product_' at line 1 | Файл: /Applications/MAMP/htdocs/shop/vendor/gabordemooij/redbean/RedBeanPHP/Driver/RPDO.php | Строка: 206
 ====================
+[2024-06-17 14:38:10]Текст ошибки Страница не найдена | Файл: /Applications/MAMP/htdocs/shop/vendor/ishop/core/Router.php | Строка: 48
+====================
+[2024-06-17 14:38:33]Текст ошибки Страница не найдена | Файл: /Applications/MAMP/htdocs/shop/vendor/ishop/core/Router.php | Строка: 48
+====================
+[2024-06-17 14:38:37]Текст ошибки Страница не найдена | Файл: /Applications/MAMP/htdocs/shop/vendor/ishop/core/Router.php | Строка: 48
+====================
+[2024-06-17 14:38:44]Текст ошибки Страница не найдена | Файл: /Applications/MAMP/htdocs/shop/vendor/ishop/core/Router.php | Строка: 48
+====================
+[2024-06-17 14:38:49]Текст ошибки Страница не найдена | Файл: /Applications/MAMP/htdocs/shop/vendor/ishop/core/Router.php | Строка: 48
+====================
+[2024-06-17 14:39:37]Текст ошибки Страница не найдена | Файл: /Applications/MAMP/htdocs/shop/vendor/ishop/core/Router.php | Строка: 48
+====================
+[2024-06-17 14:39:40]Текст ошибки Страница не найдена | Файл: /Applications/MAMP/htdocs/shop/vendor/ishop/core/Router.php | Строка: 48
+====================
+[2024-06-17 15:10:00]Текст ошибки SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '2 -- keep-cache' at line 1 | Файл: /Applications/MAMP/htdocs/shop/vendor/gabordemooij/redbean/RedBeanPHP/Driver/RPDO.php | Строка: 206
+====================

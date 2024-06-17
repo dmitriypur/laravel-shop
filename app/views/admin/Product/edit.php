@@ -14,6 +14,7 @@
         </div>
     </div>
 </div>
+<?php $brands = \ishop\App::$app->getProperty('brands');?>
 <section class="content">
     <div class="container-fluid">
         <div class="row">
@@ -31,6 +32,16 @@
                                 <label for="alias">Алиас</label>
                                 <input type="text" name="alias" class="form-control" id="alias"
                                        value="<?= h($product['alias']); ?>">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Брэнд</label>
+                                <select class="form-control" name="brand_id">
+                                    <option value="0">Выбрать брэнд</option>
+                                    <?php foreach($brands as $key => $item): ?>
+                                        <option <?= $product['brand_id'] == $key ? 'selected' : '' ?> value="<?=$key?>"><?=$item['title']?></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                             
                             <div class="form-group">

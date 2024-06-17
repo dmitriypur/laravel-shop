@@ -10,9 +10,17 @@ class Breadcrumbs
         $cats = App::$app->getProperty('cats');
         $breadcrumbs_array = self::getParts($cats, $category_id);
         $breadcrumbs = "<li><a href='" . PATH . "'>Главная</a></li></li><li class='breadcrumb-sep'>/</li>";
+
         if($breadcrumbs_array){
+            $n = 0;
+            $count = count($breadcrumbs_array);
             foreach($breadcrumbs_array as $alias => $title){
-                $breadcrumbs .= "<li><a href='" . PATH . "/category/{$alias}'>$title</a></li><li class='breadcrumb-sep'>/</li>";
+                $n++;
+                if($n == $count){
+                    $breadcrumbs .= "<li><p>$title</p></li></li>";
+                }else{
+                    $breadcrumbs .= "<li><a href='" . PATH . "/category/{$alias}'>$title</a></li><li class='breadcrumb-sep'>/</li>";
+                }
             }
         }
         if($name){

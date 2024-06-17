@@ -7951,6 +7951,7 @@ table p {
 .shop-sidebar-size .size-list > li > a:hover {
   color: var(--color-primary);
 }
+
 .shop-sidebar-brand {
   background-color: #fafafa;
   border: 2px solid #e1e1e1;

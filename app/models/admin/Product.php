@@ -18,6 +18,7 @@ class Product extends AppModel
         'status' => '',
         'hit' => '',
         'img' => '',
+        'brand_id' => 0,
     ];
 
     public array $rules = [

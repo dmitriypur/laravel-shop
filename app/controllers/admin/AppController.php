@@ -21,6 +21,7 @@ class AppController extends Controller
         }
         new AppModel();
         App::$app->setProperty('cats', self::getCategory());
+        App::$app->setProperty('brands', self::cacheBrands());
     }
 
 
@@ -28,6 +29,16 @@ class AppController extends Controller
     public static function getCategory(){
         $cats = R::getAssoc("SELECT * FROM category");
         return $cats;
+    }
+
+    public static function cacheBrands(){
+        $cache = Cache::instance();
+        $brands = $cache->get('brands');
+        if(!$brands){
+            $brands = R::getAssoc("SELECT * FROM brand");
+            $cache->set('brands', $brands);
+        }
+        return $brands;
     }
 
 }
