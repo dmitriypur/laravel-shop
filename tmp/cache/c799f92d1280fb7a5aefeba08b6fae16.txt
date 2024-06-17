@@ -1,0 +1,1 @@
+a:2:{s:4:"data";a:3:{i:1;a:4:{s:5:"title";s:12:"Размер";s:5:"alias";s:4:"size";s:8:"type_inp";s:1:"2";s:6:"active";s:1:"1";}i:2;a:4:{s:5:"title";s:8:"Цвет";s:5:"alias";s:5:"color";s:8:"type_inp";s:1:"1";s:6:"active";s:1:"1";}i:4;a:4:{s:5:"title";s:10:"Сезон";s:5:"alias";s:5:"sezon";s:8:"type_inp";s:1:"1";s:6:"active";s:1:"1";}}s:8:"end_time";i:1718628436;}

@@ -1,0 +1,12 @@
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteRule ^ index.php [L]
+
+
+RewriteRule (.*) index.php?$1 [L,QSA]
+
+#RewriteCond %{THE_REQUEST} ^public(.*)$
+#RewriteRule ^(.*)$ %{REQUEST_URI}$1/ [R=301,L]

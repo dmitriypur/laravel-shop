@@ -1,0 +1,18 @@
+a:2:{s:4:"data";s:577:"<!--<li class="cat-item">
+    <a href="/category/">
+                    </a>
+
+    
+        <ul class="">
+                    </ul>
+    </li>-->
+    <li class="menu-item-has-children">
+        <a href="http://localhost:8888/shop/category/muzhskie">Мужские кроссовки</a>
+    </li>
+    <li class="menu-item-has-children">
+        <a href="http://localhost:8888/shop/category/zhenskie">Женские кроссовки</a>
+    </li>
+    <li class="menu-item-has-children">
+        <a href="http://localhost:8888/shop/category/uniseks">Унисекс</a>
+    </li>
+";s:8:"end_time";i:1718631689;}

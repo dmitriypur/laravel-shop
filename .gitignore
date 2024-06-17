@@ -1,0 +1,15 @@
+/.phpunit.cache
+/node_modules
+/public/images
+/public/img
+/public/validator
+/public/*.json
+/products
+/vendor
+/*.zip
+/*.json
+/public/robots.txt
+
+/.fleet
+/.idea
+/.vscode

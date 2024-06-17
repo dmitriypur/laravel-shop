@@ -1,0 +1,113 @@
+.pagination .my-page-link{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+.pagination .my-page-link:hover,
+.pagination .my-page-link.active{
+    background: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+}
+
+.list-group .item-p{
+    position: relative;
+}
+.list-group .item-p span{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 40px;
+}
+.list-group .item-p span a{
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 10px;
+}
+
+.products-table .success,
+.products-table .danger{
+    position: relative;
+    width: 100px;
+}
+.products-table .success::before,
+.products-table .danger::before{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background: #40be2e;
+    border-radius: 50%;
+}
+
+.products-table .danger::before{
+    background: #ee6448;
+}
+
+.note-editor.note-airframe .note-editing-area, .note-editor.note-frame .note-editing-area{
+    min-height: 200px;
+}
+.gallery-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.img-block{
+    width: 100px;
+    height: 100px;
+}
+.gallery-wrap .img-block{
+    margin-bottom: 20px;
+}
+.img-block .image{
+    width: 100%;
+    height: 100%;
+}
+.img-block .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.ck-editor__editable[role="textbox"] {
+    /* Editing area */
+    min-height: 200px;
+}
+.ck-content .image {
+    /* Block images */
+    max-width: 80%;
+    margin: 20px auto;
+}
+
+.table td.success,
+.table td.danger{
+    position: relative;
+}
+.table td.success::before,
+.table td.danger::before{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background: #40be2e;
+    border-radius: 50%;
+}
+.table td.danger::before{
+    background: #ee6448;
+}

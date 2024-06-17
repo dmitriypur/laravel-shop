@@ -1,0 +1,16 @@
+a:2:{s:4:"data";s:685:"<li class="menu-item-has-children">
+            <span class="mobile-menu-expand"></span>
+        <a href="http://localhost:8888/shop/category/catalog">Каталог</a>
+            <ul class="sub-menu">
+            <li class="">
+        <a href="http://localhost:8888/shop/category/muzhskie">&#160;&#160;&#160;&#160;&#160;Мужские кроссовки</a>
+    </li>
+<li class="">
+        <a href="http://localhost:8888/shop/category/zhenskie">&#160;&#160;&#160;&#160;&#160;Женские кроссовки</a>
+    </li>
+<li class="">
+        <a href="http://localhost:8888/shop/category/uniseks">&#160;&#160;&#160;&#160;&#160;Унисекс</a>
+    </li>
+        </ul>
+    </li>
+";s:8:"end_time";i:1718631689;}
