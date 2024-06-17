@@ -666,7 +666,7 @@
     })
 
     // =========================== Фильтры ===========================
-
+    let resetFilterButton = addNode('button', 'filter__reset-btn', 'Сбросить фильтр', ['type', 'reset']);
     $('body').on('change', '.shop-sidebar input', function () {
         let checked = $('.shop-sidebar input:checked'),
             data = {},
@@ -678,7 +678,6 @@
 
         for(let item in data){
             data[item] = data[item].replace('undefined', '')
-
         }
         let getParams = '';
         for(let item in data){
@@ -708,6 +707,9 @@
                         newUrl = newUrl.replace('&&', '&');
                         newUrl = newUrl.replace('?&', '?');
                         history.pushState({}, '', newUrl);
+
+                        $('body').append(resetFilterButton)
+
                     });
                 },
                 error: function () {
@@ -719,6 +721,13 @@
         }
     })
 
+    if(location.search.indexOf('filter') != -1 || location.search.indexOf('price') != -1){
+        $('body').append(resetFilterButton)
+    }
+
+    $('body').on('click', '.filter__reset-btn', function () {
+        window.location = location.pathname
+    })
     function filterPrice(data){
         if (data) {
             let price = data.join(',');
@@ -742,6 +751,7 @@
                         newUrl = newUrl.replace('?&', '?');
                         console.log(newUrl)
                         history.pushState({}, '', newUrl);
+                        $('body').append(resetFilterButton)
                     });
                 },
                 error: function () {
@@ -859,6 +869,23 @@
     })
 
     // =========================== /Send Mail ===========================
+
+    // =========================== add Node ===========================
+
+    function addNode(tagName = 'div', className = '', text = '', attrs = []){
+        let element = document.createElement(tagName);
+        if(className){
+            element.classList.add(className);
+        }
+        if(attrs && attrs.length){
+            element.setAttribute(attrs[0], attrs[1]);
+        }
+        element.innerText = text
+
+        return element;
+    }
+
+    // =========================== add Node ===========================
 
 })(window.jQuery);
 

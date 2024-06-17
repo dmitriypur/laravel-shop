@@ -59,6 +59,7 @@ class Filter
     }
 
     public static function getFilter(){
+        if(!isset($_GET['filter'])) return;
         $params = explode(';', $_GET['filter']);
         $filter = '';
 

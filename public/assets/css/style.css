@@ -9997,3 +9997,16 @@ small.error-message{
   line-height: 1.4;
   color: red;
 }
+
+.filter__reset-btn{
+  position: fixed;
+  top: 40%;
+  left: 0;
+  background: red;
+  padding: 7px 20px;
+  border: none;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  box-shadow: 8px 10px 30px rgba(0, 0, 0, 0.31);
+  z-index: 999;
+}
